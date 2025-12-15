@@ -1,24 +1,34 @@
 import { createClient } from '@/lib/supabase/server';
+import { Generation, Subscription } from '@/types/database.types';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 export default async function DashboardPage() {
     const supabase = await createClient();
 
     const { data: { user } } = await supabase.auth.getUser();
 
+    if (!user) {
+        redirect('/login');
+    }
+
     // Get user stats
-    const { data: subscription } = await supabase
+    const { data: subscriptionData } = await supabase
         .from('subscriptions')
         .select('tier, credits_used, monthly_credits')
-        .eq('user_id', user?.id)
+        .eq('user_id', user.id)
         .single();
 
-    const { data: generations, count: totalGenerations } = await supabase
+    const subscription = subscriptionData as Subscription | null;
+
+    const { data: generationsData, count: totalGenerations } = await supabase
         .from('generations')
         .select('*', { count: 'exact', head: false })
-        .eq('user_id', user?.id)
+        .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(4);
+
+    const generations = generationsData as Generation[] | null;
 
     const remainingCredits = subscription
         ? Math.max(0, subscription.monthly_credits - subscription.credits_used)

@@ -4,7 +4,7 @@ import { createAdminClient } from '@/lib/supabase/server';
 import { SUBSCRIPTION_TIERS } from '@/lib/subscription-tiers';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-    apiVersion: '2024-12-18.acacia',
+    apiVersion: '2025-02-24.acacia',
 });
 
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Invalid signature' }, { status: 400 });
     }
 
-    const supabase = createAdminClient();
+    const supabase: any = createAdminClient();
 
     try {
         switch (event.type) {

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { triggerN8nGeneration } from '@/lib/n8n';
 import { getTierConfig, canGenerate } from '@/lib/subscription-tiers';
-import type { JewelryType, TierKey } from '@/types/database.types';
+import type { JewelryType, SubscriptionTier, Subscription, JewelryUpload, Generation } from '@/types/database.types';
 
 interface GenerateRequestBody {
     jewelryId: string;
@@ -13,7 +13,7 @@ interface GenerateRequestBody {
 
 export async function POST(request: NextRequest) {
     try {
-        const supabase = await createClient();
+        const supabase: any = await createClient();
 
         // Get authenticated user
         const { data: { user }, error: authError } = await supabase.auth.getUser();
@@ -36,11 +36,13 @@ export async function POST(request: NextRequest) {
         }
 
         // Get user subscription
-        const { data: subscription, error: subError } = await supabase
+        const { data: subscriptionData, error: subError } = await supabase
             .from('subscriptions')
             .select('*')
             .eq('user_id', user.id)
             .single();
+
+        const subscription = subscriptionData as Subscription | null;
 
         if (subError || !subscription) {
             return NextResponse.json(
@@ -58,12 +60,14 @@ export async function POST(request: NextRequest) {
         }
 
         // Get jewelry details
-        const { data: jewelry, error: jewelryError } = await supabase
+        const { data: jewelryData, error: jewelryError } = await supabase
             .from('jewelry_uploads')
             .select('*')
             .eq('id', jewelryId)
             .eq('user_id', user.id)
             .single();
+
+        const jewelry = jewelryData as JewelryUpload | null;
 
         if (jewelryError || !jewelry) {
             return NextResponse.json(
@@ -73,10 +77,10 @@ export async function POST(request: NextRequest) {
         }
 
         // Get tier config for watermark and resolution
-        const tierConfig = getTierConfig(subscription.tier as TierKey);
+        const tierConfig = getTierConfig(subscription.tier as SubscriptionTier);
 
         // Create generation record
-        const { data: generation, error: genError } = await supabase
+        const { data: generationData, error: genError } = await supabase
             .from('generations')
             .insert({
                 user_id: user.id,
@@ -87,9 +91,11 @@ export async function POST(request: NextRequest) {
                 has_watermark: tierConfig.hasWatermark,
                 resolution: tierConfig.resolution,
                 metadata: { jewelryType },
-            })
+            } as any)
             .select()
             .single();
+
+        const generation = generationData as Generation | null;
 
         if (genError || !generation) {
             console.error('[Generate] Insert error:', genError);
@@ -102,7 +108,7 @@ export async function POST(request: NextRequest) {
         // Increment credits used
         const { error: updateError } = await supabase
             .from('subscriptions')
-            .update({ credits_used: subscription.credits_used + 1 })
+            .update({ credits_used: subscription.credits_used + 1 } as any)
             .eq('id', subscription.id);
 
         if (updateError) {
@@ -129,13 +135,13 @@ export async function POST(request: NextRequest) {
                 .update({
                     status: 'failed',
                     error_message: n8nResult.error
-                })
+                } as any)
                 .eq('id', generation.id);
 
             // Refund the credit
             await supabase
                 .from('subscriptions')
-                .update({ credits_used: subscription.credits_used })
+                .update({ credits_used: subscription.credits_used } as any)
                 .eq('id', subscription.id);
 
             return NextResponse.json(
@@ -147,7 +153,7 @@ export async function POST(request: NextRequest) {
         // Update status to processing
         await supabase
             .from('generations')
-            .update({ status: 'processing' })
+            .update({ status: 'processing' } as any)
             .eq('id', generation.id);
 
         return NextResponse.json({

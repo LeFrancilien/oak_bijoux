@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
         }
 
         const payload = body as N8nCallbackPayload;
-        const supabase = createAdminClient();
+        const supabase: any = createAdminClient();
 
         // Get the generation
         const { data: generation, error: fetchError } = await supabase

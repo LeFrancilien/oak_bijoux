@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { createClient } from '@/lib/supabase/client';
+import type { Generation } from '@/types/database.types';
+
 
 interface GenerationProgressProps {
     generationId: string;
@@ -31,16 +33,20 @@ export default function GenerationProgress({
     const checkStatus = useCallback(async () => {
         const supabase = createClient();
 
-        const { data, error } = await supabase
+        const { data: rawData, error } = await supabase
             .from('generations')
             .select('status, result_image_url, error_message, has_watermark')
             .eq('id', generationId)
             .single();
 
+        const data = rawData as Generation | null;
+
         if (error) {
             console.error('Status check error:', error);
             return;
         }
+
+        if (!data) return;
 
         if (data.status === 'completed' && data.result_image_url) {
             onComplete({

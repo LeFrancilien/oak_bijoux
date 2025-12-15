@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import Sidebar from '@/components/dashboard/Sidebar';
+import { User as UserProfile, Subscription } from '@/types/database.types';
 
 export default async function DashboardLayout({
     children,
@@ -16,17 +17,21 @@ export default async function DashboardLayout({
     }
 
     // Get user profile and subscription
-    const { data: profile } = await supabase
+    const { data: profileData } = await supabase
         .from('users')
         .select('full_name, email')
         .eq('id', user.id)
         .single();
 
-    const { data: subscription } = await supabase
+    const profile = profileData as UserProfile | null;
+
+    const { data: subscriptionData } = await supabase
         .from('subscriptions')
         .select('tier, credits_used, monthly_credits')
         .eq('user_id', user.id)
         .single();
+
+    const subscription = subscriptionData as Subscription | null;
 
     return (
         <div className="min-h-screen bg-background">
