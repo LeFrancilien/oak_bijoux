@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* OAK BIJOUX - Luxe Design System */
+
+:root {
+  /* Primary Colors - Gold Accents */
+  --gold-50: #fefce8;
+  --gold-100: #fef9c3;
+  --gold-200: #fef08a;
+  --gold-300: #fde047;
+  --gold-400: #facc15;
+  --gold-500: #d4a574;
+  --gold-600: #b8860b;
+  --gold-700: #92400e;
+
+  /* Neutral Colors */
+  --onyx-50: #f9fafb;
+  --onyx-100: #f3f4f6;
+  --onyx-200: #e5e7eb;
+  --onyx-300: #d1d5db;
+  --onyx-400: #9ca3af;
+  --onyx-500: #6b7280;
+  --onyx-600: #4b5563;
+  --onyx-700: #374151;
+  --onyx-800: #1f2937;
+  --onyx-900: #111827;
+  --onyx-950: #030712;
+
+  /* Semantic Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* Light Theme (Default) - Inspired by Histoire d'Or */
+  --background: #ffffff;
+  --foreground: var(--onyx-900);
+  --card: #ffffff;
+  --card-foreground: var(--onyx-900);
+  --primary: var(--gold-600);
+  --primary-foreground: #ffffff;
+  --secondary: var(--onyx-50);
+  --secondary-foreground: var(--onyx-900);
+  --muted: var(--onyx-100);
+  --muted-foreground: var(--onyx-500);
+  --border: var(--onyx-200);
+  --ring: var(--gold-500);
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --radius: 0.75rem;
+}
+
+/* Dark Mode (Optional/Secondary) */
+.dark {
+  --background: var(--onyx-950);
+  --foreground: var(--onyx-50);
+  --card: var(--onyx-900);
+  --card-foreground: var(--onyx-50);
+  --primary: var(--gold-500);
+  --primary-foreground: var(--onyx-950);
+  --secondary: var(--onyx-800);
+  --secondary-foreground: var(--onyx-50);
+  --muted: var(--onyx-800);
+  --muted-foreground: var(--onyx-400);
+  --border: var(--onyx-800);
+  --ring: var(--gold-500);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  /* Expose full gold palette */
+  --color-gold-50: var(--gold-50);
+  --color-gold-100: var(--gold-100);
+  --color-gold-200: var(--gold-200);
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+
+  /* Aliases for convenience */
+  --color-gold: var(--gold-500);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --radius: var(--radius);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Luxe Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-600) 100%);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px 0 rgba(184, 134, 11, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(184, 134, 11, 0.35);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-secondary:hover {
+  background: var(--muted);
+  border-color: var(--gold-500);
+}
+
+/* Card Styles */
+.card-luxe {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-luxe:hover {
+  box-shadow: 0 10px 40px -10px rgba(184, 134, 11, 0.15);
+  border-color: var(--gold-500);
+}
+
+/* Gold Accent Border */
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, var(--gold-400), var(--gold-600)) 1;
+}
+
+/* Glassmorphism effect for dark mode */
+.dark .glass {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 165, 116, 0.1);
+}
+
+/* Animation for loading states */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg,
+      var(--muted) 0%,
+      var(--gold-200) 50%,
+      var(--muted) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Progress bar styling */
+.progress-gold {
+  background: linear-gradient(90deg, var(--gold-500), var(--gold-400), var(--gold-500));
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-600);
+}
+
+/* Selection color */
+
+::selection {
+  background: var(--gold-500);
+  color: white;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-fall {
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
