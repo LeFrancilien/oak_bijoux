@@ -9,7 +9,7 @@ export default async function GalleryPage() {
     const { data: generations } = await supabase
         .from('generations')
         .select('*')
-        .eq('user_id', user?.id)
+        .eq('user_id', user?.id || '')
         .order('created_at', { ascending: false });
 
     return (
@@ -100,9 +100,9 @@ export default async function GalleryPage() {
                             <div className="p-4">
                                 <div className="flex items-center justify-between text-sm">
                                     <span className={`px-2 py-0.5 rounded text-xs ${gen.status === 'completed' ? 'bg-success/10 text-success' :
-                                            gen.status === 'processing' ? 'bg-gold-500/10 text-gold-500' :
-                                                gen.status === 'failed' ? 'bg-error/10 text-error' :
-                                                    'bg-secondary text-muted-foreground'
+                                        gen.status === 'processing' ? 'bg-gold-500/10 text-gold-500' :
+                                            gen.status === 'failed' ? 'bg-error/10 text-error' :
+                                                'bg-secondary text-muted-foreground'
                                         }`}>
                                         {gen.status === 'completed' ? 'Terminé' :
                                             gen.status === 'processing' ? 'En cours' :
