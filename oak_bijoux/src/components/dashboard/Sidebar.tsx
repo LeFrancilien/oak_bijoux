@@ -65,7 +65,15 @@ export default function Sidebar({
     monthlyCredits = 1,
 }: SidebarProps) {
     const pathname = usePathname();
+    const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    const handleSignOut = async () => {
+        const supabase = createClient();
+        await supabase.auth.signOut();
+        router.refresh();
+        router.push('/');
+    };
 
     const tierInfo = tierLabels[tier];
     const remainingCredits = Math.max(0, monthlyCredits - creditsUsed);
@@ -173,7 +181,11 @@ export default function Sidebar({
                                 <p className="text-sm font-medium truncate">{userName}</p>
                                 <p className="text-xs text-muted-foreground truncate">{userEmail}</p>
                             </div>
-                            <button className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-secondary transition-colors">
+                            <button
+                                onClick={handleSignOut}
+                                className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-secondary transition-colors"
+                                title="Se déconnecter"
+                            >
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
