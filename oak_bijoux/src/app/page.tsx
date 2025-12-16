@@ -45,7 +45,7 @@ export default function HomePage() {
             <span className="text-sm text-[#111827] dark:text-[#f3f4f6] font-medium">1 génération offerte à l&apos;inscription</span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-display font-medium text-[#000000] dark:text-[#ffffff] mb-8 leading-tight drop-shadow-sm tracking-tight">
+          <h1 className="text-6xl lg:text-8xl font-display font-bold text-[#000000] dark:text-[#ffffff] mb-8 leading-tight">
             Sublimez vos bijoux <br />
             <span className="text-4xl lg:text-5xl font-body font-light text-[#374151] dark:text-[#d1d5db] block mt-4">
               avec <span className="font-semibold text-gold-600">l&apos;Intelligence Artificielle</span>
