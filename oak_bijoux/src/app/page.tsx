@@ -42,7 +42,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#111827] border border-onyx-200 dark:border-gray-800 shadow-sm mb-8">
             <span className="text-gold-500">✨</span>
-            <span className="text-sm text-foreground font-medium">1 génération offerte à l&apos;inscription</span>
+            <span className="text-sm text-[#111827] dark:text-[#f3f4f6] font-medium">1 génération offerte à l&apos;inscription</span>
           </div>
 
           <h1 className="text-6xl lg:text-8xl font-display font-bold text-foreground mb-8 leading-tight">
