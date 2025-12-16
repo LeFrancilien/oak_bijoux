@@ -33,15 +33,15 @@
 
   /* Light Theme (Default) - Inspired by Histoire d'Or */
   --background: #ffffff;
-  --foreground: var(--onyx-900);
+  --foreground: #000000; /* Force Pure Black */
   --card: #ffffff;
-  --card-foreground: var(--onyx-900);
+  --card-foreground: #000000;
   --primary: var(--gold-600);
   --primary-foreground: #ffffff;
   --secondary: var(--onyx-50);
-  --secondary-foreground: var(--onyx-900);
+  --secondary-foreground: #000000;
   --muted: var(--onyx-100);
-  --muted-foreground: var(--onyx-500);
+  --muted-foreground: #4b5563; /* Darker grey */
   --border: var(--onyx-200);
   --ring: var(--gold-500);
 
@@ -56,7 +56,7 @@
 /* Dark Mode (Optional/Secondary) */
 .dark {
   --background: var(--onyx-950);
-  --foreground: var(--onyx-50);
+  --foreground: #ffffff; /* Force Pure White */
   --card: var(--onyx-900);
   --card-foreground: var(--onyx-50);
   --primary: var(--gold-500);
