@@ -24,10 +24,10 @@ export default function HomePage() {
               <span className="font-display text-xl font-semibold text-gold-500">OAK BIJOUX</span>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              <Link href="/pricing" className="text-[#4b5563] dark:text-[#d1d5db] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
                 Tarifs
               </Link>
-              <Link href="/login" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              <Link href="/login" className="text-[#4b5563] dark:text-[#d1d5db] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
                 Connexion
               </Link>
               <ThemeToggle />
