@@ -181,7 +181,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-[#4b5563] dark:text-[#d1d5db]">
               <Link href="/pricing" className="hover:text-gold-500 transition-colors">
                 Tarifs
               </Link>
