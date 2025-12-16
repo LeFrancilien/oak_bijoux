@@ -10,9 +10,9 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-gold-50/50 to-white" />
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gold-500/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/5 rounded-full blur-[80px]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gold-50/50 to-white dark:from-onyx-950 dark:via-onyx-900 dark:to-onyx-950" />
+        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gold-500/10 dark:bg-gold-500/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/5 dark:bg-gold-600/5 rounded-full blur-[80px]" />
 
         {/* Nav */}
         <nav className="absolute top-0 left-0 right-0 z-50 p-6">
@@ -24,10 +24,10 @@ export default function HomePage() {
               <span className="font-display text-xl font-semibold text-gold-500">OAK BIJOUX</span>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/pricing" className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white transition-colors">
                 Tarifs
               </Link>
-              <Link href="/login" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/login" className="text-muted-foreground dark:text-gray-300 hover:text-foreground dark:hover:text-white transition-colors">
                 Connexion
               </Link>
               <ThemeToggle />
@@ -40,19 +40,19 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-onyx-200 shadow-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-onyx-900 border border-onyx-200 dark:border-booking-800 shadow-sm mb-8">
             <span className="text-gold-500">✨</span>
-            <span className="text-sm text-muted-foreground">1 génération offerte à l&apos;inscription</span>
+            <span className="text-sm text-muted-foreground dark:text-gray-300">1 génération offerte à l&apos;inscription</span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-display font-medium text-foreground mb-8 leading-tight drop-shadow-sm tracking-tight">
+          <h1 className="text-6xl lg:text-8xl font-display font-medium text-foreground dark:text-white mb-8 leading-tight drop-shadow-sm tracking-tight">
             Sublimez vos bijoux <br />
-            <span className="text-4xl lg:text-5xl font-body font-light text-muted-foreground block mt-4">
+            <span className="text-4xl lg:text-5xl font-body font-light text-muted-foreground dark:text-gray-400 block mt-4">
               avec <span className="font-semibold text-gold-600">l&apos;Intelligence Artificielle</span>
             </span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+          <p className="text-xl text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto mb-10">
             Générez des visuels publicitaires ultra-réalistes en quelques secondes.
             Uploadez, décrivez, laissez l&apos;IA créer.
           </p>
