@@ -9,10 +9,8 @@ export default function HomePage() {
       <ChristmasDecorations />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-gold-50/50 to-white dark:from-onyx-950 dark:via-onyx-900 dark:to-onyx-950" />
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-gold-500/10 dark:bg-gold-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold-600/5 dark:bg-gold-600/5 rounded-full blur-[80px]" />
+        {/* Background gradient - Darkened for Dark Mode */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white dark:from-[#000000] dark:via-[#0a0a0a] dark:to-[#000000]" />
 
         {/* Nav */}
         <nav className="absolute top-0 left-0 right-0 z-50 p-6">
@@ -24,14 +22,14 @@ export default function HomePage() {
               <span className="font-display text-xl font-semibold text-gold-500">OAK BIJOUX</span>
             </div>
             <div className="flex items-center gap-4">
-              <Link href="/pricing" className="text-[#4b5563] dark:text-[#d1d5db] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
+              <Link href="/pricing" className="text-[#1f2937] dark:text-[#e5e7eb] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
                 Tarifs
               </Link>
-              <Link href="/login" className="text-[#4b5563] dark:text-[#d1d5db] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
+              <Link href="/login" className="text-[#1f2937] dark:text-[#e5e7eb] hover:text-[#000000] dark:hover:text-[#ffffff] transition-colors font-medium">
                 Connexion
               </Link>
               <ThemeToggle />
-              <Link href="/register" className="btn-primary text-sm">
+              <Link href="/register" className="btn-primary text-sm shadow-lg shadow-gold-500/20">
                 Essayer Gratuitement
               </Link>
             </div>
@@ -40,19 +38,19 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#111827] border border-onyx-200 dark:border-gray-800 shadow-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#111827] border border-gray-200 dark:border-gray-800 shadow-sm mb-8">
             <span className="text-gold-500">✨</span>
             <span className="text-sm text-[#111827] dark:text-[#f3f4f6] font-medium">1 génération offerte à l&apos;inscription</span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-display font-bold text-foreground mb-8 leading-tight">
+          <h1 className="text-6xl lg:text-8xl font-display font-bold text-[#000000] dark:text-[#ffffff] mb-8 leading-tight drop-shadow-sm">
             Sublimez vos bijoux <br />
-            <span className="text-4xl lg:text-5xl font-body font-light text-muted-foreground block mt-4">
+            <span className="text-4xl lg:text-5xl font-body font-light text-[#374151] dark:text-[#e5e7eb] block mt-4">
               avec <span className="font-semibold text-gold-600">l&apos;Intelligence Artificielle</span>
             </span>
           </h1>
 
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 font-medium">
+          <p className="text-xl text-[#4b5563] dark:text-[#d1d5db] max-w-2xl mx-auto mb-10 font-medium">
             Générez des visuels publicitaires ultra-réalistes en quelques secondes.
             Uploadez, décrivez, laissez l&apos;IA créer.
           </p>
