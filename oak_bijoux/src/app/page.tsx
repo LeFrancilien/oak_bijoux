@@ -40,19 +40,19 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-onyx-900 border border-onyx-200 dark:border-booking-800 shadow-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#111827] border border-onyx-200 dark:border-gray-800 shadow-sm mb-8">
             <span className="text-gold-500">✨</span>
-            <span className="text-sm text-gray-800 dark:text-gray-200 font-medium">1 génération offerte à l&apos;inscription</span>
+            <span className="text-sm text-[#111827] dark:text-[#f3f4f6] font-medium">1 génération offerte à l&apos;inscription</span>
           </div>
 
-          <h1 className="text-6xl lg:text-8xl font-display font-medium text-foreground dark:text-white mb-8 leading-tight drop-shadow-sm tracking-tight">
+          <h1 className="text-6xl lg:text-8xl font-display font-medium text-[#000000] dark:text-[#ffffff] mb-8 leading-tight drop-shadow-sm tracking-tight">
             Sublimez vos bijoux <br />
-            <span className="text-4xl lg:text-5xl font-body font-light text-gray-500 dark:text-gray-400 block mt-4">
+            <span className="text-4xl lg:text-5xl font-body font-light text-[#374151] dark:text-[#d1d5db] block mt-4">
               avec <span className="font-semibold text-gold-600">l&apos;Intelligence Artificielle</span>
             </span>
           </h1>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 font-medium">
+          <p className="text-xl text-[#1f2937] dark:text-[#e5e7eb] max-w-2xl mx-auto mb-10 font-medium">
             Générez des visuels publicitaires ultra-réalistes en quelques secondes.
             Uploadez, décrivez, laissez l&apos;IA créer.
           </p>
@@ -181,7 +181,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-700 dark:text-gray-300 font-medium">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-[#374151] dark:text-[#d1d5db] font-medium">
               <Link href="/pricing" className="hover:text-gold-500 transition-colors">
                 Tarifs
               </Link>
@@ -200,7 +200,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="border-t border-border/50 pt-8 text-center text-xs text-gray-600 dark:text-gray-400">
+          <div className="border-t border-border/50 pt-8 text-center text-xs text-[#4b5563] dark:text-[#9ca3af]">
             <p className="mb-2">© 2024 OAK BIJOUX - Une marque de OAKFLOW AI.</p>
             <p>Tous droits réservés. Application conforme aux normes RGPD.</p>
           </div>
