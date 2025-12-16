@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 /* OAK BIJOUX - Luxe Design System */
 
@@ -33,7 +34,8 @@
 
   /* Light Theme (Default) - Inspired by Histoire d'Or */
   --background: #ffffff;
-  --foreground: #000000; /* Force Pure Black */
+  --foreground: #000000;
+  /* Force Pure Black */
   --card: #ffffff;
   --card-foreground: #000000;
   --primary: var(--gold-600);
@@ -41,7 +43,8 @@
   --secondary: var(--onyx-50);
   --secondary-foreground: #000000;
   --muted: var(--onyx-100);
-  --muted-foreground: #4b5563; /* Darker grey */
+  --muted-foreground: #4b5563;
+  /* Darker grey */
   --border: var(--onyx-200);
   --ring: var(--gold-500);
 
@@ -56,7 +59,8 @@
 /* Dark Mode (Optional/Secondary) */
 .dark {
   --background: var(--onyx-950);
-  --foreground: #ffffff; /* Force Pure White */
+  --foreground: #ffffff;
+  /* Force Pure White */
   --card: var(--onyx-900);
   --card-foreground: var(--onyx-50);
   --primary: var(--gold-500);
